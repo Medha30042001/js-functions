@@ -1,4 +1,5 @@
 //approach by Venugopal Burli - Doubt Clarification Session
+//https://onecompiler.com/javascript/43ztatwhq
 
 function checkPasswordStrength(password){
   
@@ -17,11 +18,11 @@ function checkPasswordStrength(password){
         spCharCount++;
       }
     }
-    if(spCharCount==0)
+    if(spCharCount>0)
     {
-      console.log('Moderate Password');
-    } else{
       console.log('Strong Password');
+    } else{
+      console.log('Moderate Password');
     } 
   }
 }
@@ -29,6 +30,11 @@ function checkPasswordStrength(password){
 checkPasswordStrength('Medha@2001');
 checkPasswordStrength('Medha');
 checkPasswordStrength('Medha2001');
+
+checkPasswordStrength("12345");       // Should return "Weak"
+checkPasswordStrength("password");   // Should return "Moderate"
+checkPasswordStrength("Pass123!");   // Should return "Strong"
+
 
 // let firstChar = 'v'; //9 or &
 
