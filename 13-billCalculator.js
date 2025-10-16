@@ -1,18 +1,15 @@
 //my attempt
-//https://onecompiler.com/javascript/43zmxhsnx
+//https://onecompiler.com/javascript/43zm59b9b
 
-function calculateFinalPrice(orderAmount, discountCode){
-  if(orderAmount<500){
-    return 'Please add tems of Rs.' + (500-orderAmount) + ' to get discount'
-  }
-  let finalPrice = 0;
-  if(discountCode==='SAVE10'){
-    finalPrice = orderAmount*(1-(10/100));
-  }else if(discountCode==='SAVE20'){
-    finalPrice = orderAmount*(1-(20/100));
-  }
-  return finalPrice;
+function calculateEnergyBill(unitsConsumed){
+  let cost = 0;
+  if(unitsConsumed<=100){
+    cost = unitsConsumed*5;
+  }else if(unitsConsumed>100 && unitsConsumed<=200){
+    cost = 500 + ((unitsConsumed-100)*8);
+  }else cost = 500 + 800 + ((unitsConsumed-200)*10) + 100;
+  return cost;
 }
-console.log(calculateFinalPrice(1000, 'SAVE10'));
-console.log(calculateFinalPrice(2000, 'SAVE20'));
-console.log(calculateFinalPrice(150));
+
+let units = require('fs').readFileSync(0, 'utf-8').trim();
+console.log(calculateEnergyBill(parseInt(units, 10)));
